@@ -2,6 +2,10 @@
 
 🚀 A CLI-based performance analysis engine for diagnosing pipeline bottlenecks in modern CPU architectures.
 
+![CLI Preview](media/cli_preview.png)
+
+**✔ Deterministic simulator with full stall attribution** | **✔ 18/18 high-signal architectural tests passed**
+
 **A cycle-driven architectural simulator designed specifically for performance engineers to reason about bottlenecks, not just measure performance.**
 
 > **"This simulator is designed not to maximize IPC, but to explain why IPC is lost."**
@@ -10,6 +14,17 @@
 
 ### 🚀 Executive Summary
 This is a cycle-driven CPU simulator built to diagnose performance bottlenecks. Instead of focusing on raw IPC, this system attributes where cycles are spent across pipeline stages, memory wait, and resource contention—providing actionable insights into workload behavior.
+
+## 🏗️ System Architecture
+```mermaid
+graph TD
+    CLI[CLI Dispatcher] --> Sim[Simulator API]
+    Sim --> Core[CPU Core Engine]
+    Core --> Pipe[5-Stage Pipeline]
+    Core --> Mem[Memory & Cache Hierarchy]
+    Pipe --> Metrics[SimResult & Diagnostics]
+    Mem --> Metrics
+```
 
 ## 🧠 Architectural Model
 This system is a **cycle-driven architectural model** designed to study core performance behavior under realistic resource constraints. 
