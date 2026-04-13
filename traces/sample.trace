@@ -1,0 +1,24 @@
+# Elite Pipeline Trace
+# Format: OP [DEST] [SRC1] [SRC2] [ADDR/PC] [BRANCH_OUTCOME]
+
+# Case 1: Simple ALU overlap
+ADD R1 R2 R3
+SUB R4 R5 R6
+ADD R7 R8 R9
+
+# Case 2: RAW Hazard + Forwarding (No stall expected)
+ADD R10 R11 R12
+ADD R13 R10 R14  # R10 forwarded from EX to ID
+
+# Case 3: Load-Use Hazard (Stall expected)
+LOAD R15 0x1000
+ADD R16 R15 R17  # Must stall because LD result not ready in EX
+
+# Case 4: Long Latency (MUL)
+MUL R18 R19 R20
+ADD R21 R18 R22  # Will stall while MUL is in EX for 3 cycles
+
+# Case 5: Branch Misprediction
+BRANCH 0x500 R21 T
+ADD R23 R24 R25
+ADD R26 R27 R28

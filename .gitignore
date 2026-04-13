@@ -1,0 +1,61 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+simulator
+tests
+
+# Build directories
+build/
+bin/
+obj/
+Debug/
+Release/
+x64/
+.vs/
+.vscode/
+
+# Trace files (except sample ones we want to keep)
+*.trace
+!traces/sample.trace
+!compute_heavy.trace
+!memory_heavy.trace
+
+# Temporary files
+*.tmp
+*.log
+*.txt
+*.json
+!metadata.json
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,19 @@
+# Memory-Heavy Trace
+# Demonstrates low IPC through immediate load-use dependencies and high latency
+# Target different NUMA nodes to trigger remote penalties
+LOAD R1 0x1000
+ADD R2 R1 R3
+LOAD R4 0x8000
+ADD R5 R4 R6
+LOAD R7 0x10000
+ADD R8 R7 R9
+LOAD R10 0x18000
+ADD R11 R10 R12
+LOAD R13 0x20000
+ADD R14 R13 R15
+LOAD R16 0x28000
+ADD R17 R16 R18
+LOAD R19 0x30000
+ADD R20 R19 R21
+LOAD R22 0x38000
+ADD R23 R22 R1
